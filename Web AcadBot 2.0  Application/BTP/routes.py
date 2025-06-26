@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, session, url_for, flash, j
 from models import User, Data_Table, Question
 from app import db
 import uuid
-# from chatbot_main import chatbot
+from chatbot_main import chatbot
 def register_routes(app):
 
     #login page template
@@ -114,7 +114,7 @@ def register_routes(app):
 
         if request.method == 'POST':
             question_text = request.form['question']
-            fixed_answer =  "Working on it!" #chatbot(question_text)
+            fixed_answer =  chatbot(question_text)
             new_answer = fixed_answer
 
             # Check if the question already exists for the current session
